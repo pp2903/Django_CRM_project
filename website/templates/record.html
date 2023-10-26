@@ -1,0 +1,28 @@
+{% extends "home.html" %} {% block content %}
+
+<div class="col-md-6 offset-md-3">
+  <h4>Here is the record you asked for:</h4>
+  <br />
+
+  <div class="card">
+    <div class="card-header">
+      {{ user_rec.first_name }} {{ user_rec.last_name }}
+    </div>
+    <div class="card-body">
+      <p class="card-text">
+        <strong>Email: </strong>{{ user_rec.email }} <br />
+        <strong>Phone: </strong>{{ user_rec.phone }}<br />
+        <strong>Address: </strong>{{ user_rec.address }}<br />
+        <strong>City: </strong>{{ user_rec.city }}<br />
+        <strong>State: </strong>{{ user_rec.state }}<br />
+        <strong>Zipcode: </strong>{{ user_rec.zipcode }}<br />
+        <strong>ID: </strong>{{ user_rec.id }}<br />
+      </p> 
+      <a href="{% url 'home' %}" class="btn btn-primary">Back</a>
+      <a href="{% url 'del_record' user_rec.id %}" class="btn btn-danger">Delete</a>
+      <a href="{% url 'update_record' user_rec.id %}" class="btn btn-warning">Update Record</a>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}
